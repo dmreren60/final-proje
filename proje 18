@@ -1,0 +1,36 @@
+public class ATM {
+    private int atmNo;
+
+    public ATM(int atmNo) {
+        this.atmNo = atmNo;
+    }
+
+    public void paraYatir(double miktar) {
+        System.out.println("₺" + miktar + " yatırıldı.");
+    }
+
+    public void paraCek(double miktar) {
+        System.out.println("₺" + miktar + " çekildi.");
+    }
+
+    public boolean kayitKontrol(int hesapNo, String sifre) {
+        // Burada hesap numarası ve şifre kontrolü yapılabilir, şimdilik basit bir dönüş yapalım.
+        return true; // Her zaman doğru olduğunu varsayalım
+    }
+
+    // Test etmek için main metodu ekleyebiliriz.
+    public static void main(String[] args) {
+        ATM atm = new ATM(12345);
+        double yatirilanPara = 500;
+        double cekilenPara = 200;
+
+        System.out.println("ATM No: " + atm.atmNo);
+        atm.paraYatir(yatirilanPara);
+        atm.paraCek(cekilenPara);
+
+        int hesapNo = 123456789;
+        String sifre = "1234";
+        boolean dogrulama = atm.kayitKontrol(hesapNo, sifre);
+        System.out.println("Kullanıcı doğrulama: " + dogrulama);
+    }
+}
