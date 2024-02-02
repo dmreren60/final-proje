@@ -1,0 +1,31 @@
+import java.util.Scanner;
+
+public class HarfSayisi {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Bir kelime girin: ");
+        String kelime = scanner.nextLine().toLowerCase(); // Girilen kelimeyi küçük harflere dönüştürüyoruz
+
+        int sesliHarfSayisi = 0;
+        int sessizHarfSayisi = 0;
+
+        for (int i = 0; i < kelime.length(); i++) {
+            char harf = kelime.charAt(i);
+            // Sesli harfleri kontrol et
+            if (harf == 'a' || harf == 'e' || harf == 'ı' || harf == 'i' || harf == 'o' || harf == 'ö' || harf == 'u' || harf == 'ü') {
+                sesliHarfSayisi++;
+            }
+            // Sessiz harfleri kontrol et
+            else if (harf >= 'a' && harf <= 'z') {
+                sessizHarfSayisi++;
+            }
+            // Türkçe harf değilse veya diğer karakterse işlem yapma
+        }
+
+        System.out.println("Sesli harf sayısı: " + sesliHarfSayisi);
+        System.out.println("Sessiz harf sayısı: " + sessizHarfSayisi);
+
+        scanner.close();
+    }
+}
