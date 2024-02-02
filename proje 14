@@ -1,0 +1,33 @@
+import java.time.LocalDate;
+import java.time.Period;
+import java.time.format.DateTimeFormatter;
+import java.util.Scanner;
+
+public class TarihFarki {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        // Kullanıcıdan tarihleri al
+        System.out.println("İlk tarihi (GG.AA.YYYY formatında) girin:");
+        String tarihStr1 = scanner.next();
+        
+        System.out.println("İkinci tarihi (GG.AA.YYYY formatında) girin:");
+        String tarihStr2 = scanner.next();
+
+        // Tarihleri LocalDate nesnelerine dönüştür
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy");
+        LocalDate tarih1 = LocalDate.parse(tarihStr1, formatter);
+        LocalDate tarih2 = LocalDate.parse(tarihStr2, formatter);
+
+        // Tarih farkını hesapla
+        Period fark = Period.between(tarih1, tarih2);
+
+        // Sonucu ekrana yazdır
+        System.out.println("Tarihler arasındaki fark:");
+        System.out.println("Yıl: " + fark.getYears());
+        System.out.println("Ay: " + fark.getMonths());
+        System.out.println("Gün: " + fark.getDays());
+
+        scanner.close();
+    }
+}
