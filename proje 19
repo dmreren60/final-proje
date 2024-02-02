@@ -1,0 +1,67 @@
+public class Pazaryeri {
+    private String isim;
+    private String renk;
+    private String sahiplik;
+
+    // Tek bir nesne oluşturucu (singleton constructor)
+    private static Pazaryeri instance = null;
+
+    private Pazaryeri() {
+    }
+
+    public static Pazaryeri getInstance() {
+        if (instance == null) {
+            instance = new Pazaryeri();
+        }
+        return instance;
+    }
+
+    // Set metodu - sınıf değişkenlerine değer atama
+    public void setBilgiler(String isim, String renk, String sahiplik) {
+        this.isim = isim;
+        this.renk = renk;
+        this.sahiplik = sahiplik;
+    }
+
+    // Set metodu - isim değişkenine değer atama
+    public void setIsim(String isim) {
+        this.isim = isim;
+    }
+
+    // Set metodu - renk değişkenine değer atama
+    public void setRenk(String renk) {
+        this.renk = renk;
+    }
+
+    // Get metodu - isim değişkeninin değerini alma
+    public String getIsim() {
+        return isim;
+    }
+
+    // Get metodu - renk değişkeninin değerini alma
+    public String getRenk() {
+        return renk;
+    }
+
+    // Get metodu - sahiplik değişkeninin değerini alma
+    public String getSahiplik() {
+        return sahiplik;
+    }
+
+    // PazaryeriTuru metodunu tanımlama
+    public static String PazaryeriTuru() {
+        return "belirsiz";
+    }
+
+    // Test etmek için main metodu
+    public static void main(String[] args) {
+        Pazaryeri pazaryeri = Pazaryeri.getInstance();
+        pazaryeri.setBilgiler("Örnek Pazaryeri", "Mavi", "Yerli");
+
+        // Değerleri kontrol etme
+        System.out.println("Pazaryeri İsmi: " + pazaryeri.getIsim());
+        System.out.println("Pazaryeri Rengi: " + pazaryeri.getRenk());
+        System.out.println("Pazaryeri Sahiplik: " + pazaryeri.getSahiplik());
+        System.out.println("Pazaryeri Türü: " + Pazaryeri.PazaryeriTuru());
+    }
+}
