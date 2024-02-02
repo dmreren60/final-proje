@@ -1,0 +1,25 @@
+import java.util.Scanner;
+
+public class DecimalToBinary {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Lütfen bir decimal sayı girin: ");
+        int decimalSayi = scanner.nextInt();
+
+        int[] binaryDizi = new int[40]; // 40 basamaklı binary sayıyı saklamak için bir dizi
+
+        int index = 0;
+        while (decimalSayi > 0) {
+            binaryDizi[index++] = decimalSayi % 2; // Kalanı diziye ekle
+            decimalSayi = decimalSayi / 2;
+        }
+
+        System.out.print("Binary dönüşümü: ");
+        for (int i = index - 1; i >= 0; i--) {
+            System.out.print(binaryDizi[i]);
+        }
+
+        scanner.close();
+    }
+}
